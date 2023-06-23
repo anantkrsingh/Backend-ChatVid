@@ -40,7 +40,7 @@ app.listen("3000",()=>{
 
 mongoose
   .connect(
-    `mongodb://127.0.0.1:27017/audio-db`
+    `mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@cluster0.ksqm3qe.mongodb.net/test`
   )
   .then(() => {
     console.log("DB Connected");
