@@ -1,10 +1,15 @@
 const express = require('express');
 const cors = require('cors');
+const http = require('http')
 const mongoose = require('mongoose');
 const env = require('dotenv');
 const bodyParser = require('body-parser');
-const {Server} = require('socket.io');
+const socketIO = require('socket.io');
+const {Server} = require('socket.io')
 const app = express();
+const server = http.createServer(app);
+const io = socketIO(server)
+
 
 
 
@@ -19,9 +24,18 @@ const { createMeeting } = require('./Controllers/Generator');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}))
-// app.use(express.json())
-app.use(cors());
+app.use(cors())
+io.on('connection' , (socket) =>{
+  console.log("Client Connected");
 
+  socket.on('disconnect', () =>{
+    console.log("Client Disconnected");
+  })
+
+  socket.on('chat message', msg => {
+    console.log(msg);
+  });
+})
 app.use('/api',authRoutes);
 app.use('/api/meeting',roomRoutes)
 
@@ -34,20 +48,24 @@ app.get("/",(req,res)=>{
     res.send(req.query.name);
 })
 
-app.listen("3000",()=>{
-  console.log('Server Started port = 3000');
+
+
+
+server.listen("4040",()=>{
+  console.log('Server Started port = 4040');
 });
+
+
 
 mongoose
   .connect(
-    `mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@cluster0.ksqm3qe.mongodb.net/test`
+    `mongodb://127.0.0.1:27017/audio-db`
   )
   .then(() => {
     console.log("DB Connected");
   }).catch((error)=>{
     console.log(error)
   });
-
 
 
   
