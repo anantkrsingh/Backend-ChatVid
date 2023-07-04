@@ -14,7 +14,7 @@ services:
   api:
     build: .
     ports:
-      -4040:4040
+      - 4040:4040
     environment:
       MONGOOSE_URI: mongodb://db_container:27017
     depends_on:
