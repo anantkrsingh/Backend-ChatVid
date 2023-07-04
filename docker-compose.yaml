@@ -16,8 +16,6 @@ services:
     build: .
     ports:
       - 4040:4040
-    volumes:
-      - .:/app
     environment:
       MONGOOSE_URI: mongodb://db_container:27017
     depends_on:
