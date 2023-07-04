@@ -49,7 +49,7 @@ server.listen("4040", () => {
 });
 
 mongoose
-  .connect(process.env.MONGOOSE_URI)
+  .connect(process.env.MONGOOSE_URI+"/ChatVid")
   .then(() => {
     console.log("DB Connected");
   })
