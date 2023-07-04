@@ -15,6 +15,7 @@ const authRoutes = require("./Routes/Auth");
 const roomRoutes = require("./Routes/Generator");
 const sessionRoutes = require("./Routes/Session");
 const { createMeeting } = require("./Controllers/Generator");
+const path = require("path");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -38,6 +39,10 @@ app.use("/api/session", sessionRoutes);
 app.get("/", (req, res) => {
   res.send("<div>Success</div>")
 });
+app.use(express.static(__dirname))
+app.use("/html",(req,res)=>{
+  res.sendFile(path.join(__dirname+'/index.html'))
+})
 
 server.listen("4040", () => {
   console.log("Server Started port = 4040");

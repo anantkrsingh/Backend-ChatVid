@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>   
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Video Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div id="users-list"></div>
+
+      <h1 id="roomTitle" class="title text-center self-center justify-center font-bold mt-12 mb-2 text-black">Please Wait...</h1>
+      <div id="join-wrapper">
+        
+          <label
+            for="default-search"
+            class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+            >User Name</label
+          >
+          <div class="relative">
+            <div
+              class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+            >
+            <i class="fa-solid fa-user" style="color: #000000;"></i>            </div>
+            <input
+            
+              type="search"
+              id="default-user"
+              class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="User Name"
+              
+              required
+            />
+            <button
+              type="Join"
+              id="join-btn"
+              class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 "
+            >
+              Join
+            </button>
+          </div>
+        
+      </div>
+      <div id="user-streams"></div>
+
+      <!-- Wrapper for join button -->
+      <div id="footer">
+        <div class="icon-wrapper">
+          <img class="control-icon" id="camera-btn" src="./assets/video-camera.png" />
+          <p class="text-black">Cam</p>
+        </div>
+
+        <div class="icon-wrapper">
+          <img
+            class="control-icon"
+            id="mic-btn"
+            src="./assets/microphone.png"
+          />
+          <p class="text-black">Mic</p>
+        </div>
+
+        <div class="icon-wrapper">
+          <img class="control-icon" id="leave-btn" src="./assets/sign-out.png" />
+          <p class="text-black">Leave</p>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://download.agora.io/sdk/release/AgoraRTC_N.js"></script>
+    <script src="main.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
+  </body>
+</html>
