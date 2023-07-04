@@ -37,7 +37,7 @@ app.use("/api/meeting", roomRoutes);
 app.use("/api/session", sessionRoutes);
 
 app.get("/", (req, res) => {
-  res.send("<div>Success</div>")
+  res.send("<div>Success Response</div>")
 });
 app.use(express.static(__dirname))
 app.use("/html",(req,res)=>{
