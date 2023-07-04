@@ -36,8 +36,7 @@ app.use("/api/meeting", roomRoutes);
 app.use("/api/session", sessionRoutes);
 
 app.get("/", (req, res) => {
-  console.log(req.query.name);
-  res.send(req.query.name);
+  res.send("<div>Success</div>")
 });
 
 server.listen("4040", () => {
