@@ -44,7 +44,7 @@ server.listen("4040", () => {
 });
 
 mongoose
-  .connect(`mongodb://127.0.0.1:27017/audio-db`)
+  .connect(process.env.MONGOOSE_URI)
   .then(() => {
     console.log("DB Connected");
   })

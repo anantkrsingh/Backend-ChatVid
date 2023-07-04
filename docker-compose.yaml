@@ -1,0 +1,25 @@
+version: '3.9'
+
+
+services:
+  #  Mongoose Container Service
+  mongo_db:
+    container_name: db_container
+    image: mongo:latest
+    restart: always
+    volumes:
+      - mongo_db:/data/db
+
+  #  Node Container Service
+  api:
+    build: .
+    ports:
+      -4040:4040
+    environment:
+      MONGOOSE_URI: mongodb://db_container:27017
+    depends_on:
+      - mongo_db
+
+volumes:
+  mongo_db: {}    
+    
