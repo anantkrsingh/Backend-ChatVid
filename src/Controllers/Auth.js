@@ -92,13 +92,6 @@ exports.login = (req, res) => {
           message: "User Login Success",
           user,
         });
-        // if (user.isVerified) {
-
-        // } else
-        //   res.status(200).json({
-        //     status: 0,
-        //     message: "User Not Verified",
-        //   });
       } else {
         res
           .status(200)
