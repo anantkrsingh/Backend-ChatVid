@@ -97,7 +97,7 @@ exports.login = (req, res) => {
           .status(200)
           .json({ status: 0, message: "Email or Password Incorrect" });
       }
-    }
+    } else return res.status(400).json({ status: 0, message: "User Not Registered" });
   });
 };
 
