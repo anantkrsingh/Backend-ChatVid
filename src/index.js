@@ -27,6 +27,7 @@ const { createMeeting } = require("./Controllers/Generator");
 const path = require("path");
 
 app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://frontend-chatvid.onrender.com");
   next();
 });
 
