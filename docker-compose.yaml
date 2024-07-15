@@ -17,7 +17,7 @@ services:
     ports:
       - 4040:4040
     environment:
-      MONGOOSE_URI: mongodb://db_container:27017
+      MONGOOSE_URI: mongodb+srv://ak722872:Hello@World@Mongo@123@ecommerce.z4cbg0g.mongodb.net/?retryWrites=true&w=majority&appName=ECommerce
     depends_on:
       - mongo_db
 

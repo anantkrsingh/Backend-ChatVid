@@ -26,11 +26,9 @@ const meetingSchema  = new mongoose.Schema({
     },
     audioMuted : {
         type: Boolean,
-       
     },
     videoMuted : {
         type: Boolean,
-        
     }
 
 }, {timestamps:true});
